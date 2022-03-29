@@ -1,16 +1,13 @@
+import { Context } from 'ocontract-slang/build/runtimeTypes';
 import { SagaIterator } from 'redux-saga';
 import { call, put, race, select } from 'redux-saga/effects';
-import { Context, findDeclaration, parseError, resume, runInContext } from 'x-slang';
-import { parse } from 'x-slang/dist/parser/parser';
-import { typeCheck } from 'x-slang/dist/typeChecker/typeChecker';
-import { Variant } from 'x-slang/dist/types';
-import { validateAndAnnotate } from 'x-slang/dist/validator/validator';
+import Constants from 'src/commons/utils/Constants';
+import { run, Variant } from 'src/ocontract-integration';
 
-import { OverallState, styliseSublanguage } from '../application/ApplicationTypes';
+import { OverallState } from '../application/ApplicationTypes';
 import { DEBUG_RESET, DEBUG_RESUME, HIGHLIGHT_LINE } from '../application/types/InterpreterTypes';
-import { Documentation } from '../documentation/Documentation';
 import { actions } from '../utils/ActionsHelper';
-import { showSuccessMessage, showWarningMessage } from '../utils/NotificationsHelper';
+import { showWarningMessage } from '../utils/NotificationsHelper';
 import {
   getBlockExtraMethodsString,
   getDifferenceInMethods,
@@ -18,7 +15,6 @@ import {
   getStoreExtraMethodsString,
   highlightLine,
   inspectorUpdate,
-  makeElevatedContext,
   visualiseEnv
 } from '../utils/XSlangHelper';
 import { notifyProgramEvaluated } from '../workspace/WorkspaceActions';
@@ -35,18 +31,13 @@ import {
 } from '../workspace/WorkspaceTypes';
 import { safeTakeEvery as takeEvery } from './SafeEffects';
 
-let breakpoints: string[] = [];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function* WorkspaceSaga(): SagaIterator {
   let context: Context;
 
   yield takeEvery(EVAL_EDITOR, function* (action: ReturnType<typeof actions.evalEditor>) {
     const workspaceLocation = action.payload.workspaceLocation;
-    const [prepend, editorCode, execTime]: [
-      string,
-      string,
-      number
-    ] = yield select((state: OverallState) => [
-      state.workspaces[workspaceLocation].editorPrepend,
+    const [editorCode, execTime]: [string, number] = yield select((state: OverallState) => [
       state.workspaces[workspaceLocation].editorValue!,
       state.workspaces[workspaceLocation].execTime
     ]);
@@ -56,40 +47,9 @@ export default function* WorkspaceSaga(): SagaIterator {
     // yield put(actions.beginClearContext(workspaceLocation, false));
     yield put(actions.clearReplOutput(workspaceLocation));
     context = yield select((state: OverallState) => state.workspaces[workspaceLocation].context);
-    let value = editorCode;
+    const value = editorCode;
     // Check for initial syntax errors. If there are errors, we continue with
     // eval and let it print the error messages.
-    parse(value, context);
-
-    if (!context.errors.length) {
-      // Otherwise we step through the breakpoints one by one and check them.
-      const exploded = editorCode.split('\n');
-      for (const b in breakpoints) {
-        if (typeof b !== 'string') {
-          continue;
-        }
-
-        const index: number = +b;
-        context.errors = [];
-        exploded[index] = 'debugger;' + exploded[index];
-        value = exploded.join('\n');
-        parse(value, context);
-
-        if (context.errors.length) {
-          const msg = 'Hint: Misplaced breakpoint at line ' + (index + 1) + '.';
-          yield put(actions.sendReplInputToOutput(msg, workspaceLocation));
-        }
-      }
-    }
-
-    // Evaluate the prepend silently with a privileged context, if it exists
-    if (prepend.length) {
-      const elevatedContext = makeElevatedContext(context);
-      yield call(evalCode, prepend, elevatedContext, execTime, workspaceLocation, EVAL_SILENT);
-      // Block use of methods from privileged context
-      yield* blockExtraMethods(elevatedContext, context, execTime, workspaceLocation);
-    }
-
     yield call(evalCode, value, context, execTime, workspaceLocation, EVAL_EDITOR);
   });
 
@@ -114,11 +74,7 @@ export default function* WorkspaceSaga(): SagaIterator {
       score: name.score ? name.score + 1000 : 1000 // Prioritize suggestions from code
     }));
 
-    const variantName = context.variant.toString();
-
-    const builtinSuggestions = Documentation.builtins[variantName] || [];
-
-    yield call(action.payload.callback, null, editorSuggestions.concat(builtinSuggestions));
+    yield call(action.payload.callback, null, editorSuggestions);
   });
 
   yield takeEvery(TOGGLE_EDITOR_AUTORUN, function* (
@@ -183,39 +139,19 @@ export default function* WorkspaceSaga(): SagaIterator {
   yield takeEvery(UPDATE_EDITOR_BREAKPOINTS, function* (
     action: ReturnType<typeof actions.setEditorBreakpoint>
   ) {
-    breakpoints = action.payload.breakpoints;
+    // breakpoints = action.payload.breakpoints;
     yield;
   });
 
-  yield takeEvery(VARIANT_SELECT, function* (action: ReturnType<typeof actions.variantSelect>) {
-    const { workspaceLocation, variant: newVariant } = action.payload;
-    const result: [
-      Variant,
-      string[],
-      Array<[string, any]>
-    ] = yield select((state: OverallState) => [
-      state.workspaces[workspaceLocation].context.variant,
-      state.workspaces[workspaceLocation].context.externalSymbols,
-      state.workspaces[workspaceLocation].globals
-    ]);
-    const oldVariant = result[0];
-    if (newVariant !== oldVariant) {
-      // yield put(actions.beginClearContext(workspaceLocation, false));
-      yield put(actions.clearReplOutput(workspaceLocation));
-      yield put(actions.debuggerReset(workspaceLocation));
-      yield call(showSuccessMessage, `Switched to ${styliseSublanguage(newVariant)}`, 1000);
-    }
-  });
+  yield takeEvery(VARIANT_SELECT, function* (action: ReturnType<typeof actions.variantSelect>) {});
 
   yield takeEvery(NAV_DECLARATION, function* (
     action: ReturnType<typeof actions.navigateToDeclaration>
   ) {
     const workspaceLocation = action.payload.workspaceLocation;
-    const code: string = yield select(
-      (state: OverallState) => state.workspaces[workspaceLocation].editorValue
-    );
     context = yield select((state: OverallState) => state.workspaces[workspaceLocation].context);
 
+    /*
     const result = findDeclaration(code, context, {
       line: action.payload.cursorPosition.row + 1,
       column: action.payload.cursorPosition.column
@@ -229,6 +165,7 @@ export default function* WorkspaceSaga(): SagaIterator {
         })
       );
     }
+    */
   });
 }
 
@@ -285,29 +222,21 @@ export function* evalCode(
   workspaceLocation: WorkspaceLocation,
   actionType: string
 ): SagaIterator {
-  const stepLimit: number = yield select(
-    (state: OverallState) => state.workspaces[workspaceLocation].stepLimit
-  );
   // const substActiveAndCorrectChapter = workspaceLocation === 'playground';
   // if (substActiveAndCorrectVariant) {
   //   context.executionMethod = 'interpreter';
   // }
 
   function call_variant(variant: Variant) {
-    if (variant === 'calc') {
-      return call(runInContext, code, context, {
-        scheduler: 'preemptive',
-        originalMaxExecTime: execTime,
-        stepLimit: stepLimit
-      });
+    if (variant === Constants.defaultSourceVariant) {
+      return call(run, code, context);
     } else {
       throw new Error('Unknown variant: ' + variant);
     }
   }
 
   const { result } = yield race({
-    result:
-      actionType === DEBUG_RESUME ? call(resume, lastDebuggerResult) : call_variant(context.variant)
+    result: call_variant(Constants.defaultSourceVariant)
   });
 
   if (actionType === EVAL_EDITOR) {
@@ -320,21 +249,7 @@ export function* evalCode(
     result.status !== 'finished' &&
     result.status !== 'suspended-non-det'
   ) {
-    yield put(actions.evalInterpreterError(context.errors, workspaceLocation));
-
-    // we need to parse again, but preserve the errors in context
-    const oldErrors = context.errors;
-    context.errors = [];
-    const parsed = parse(code, context);
-    const typeErrors = parsed && typeCheck(validateAndAnnotate(parsed!, context), context)[1];
-
-    context.errors = oldErrors;
-
-    if (typeErrors && typeErrors.length > 0) {
-      yield put(
-        actions.sendReplInputToOutput('Hints:\n' + parseError(typeErrors), workspaceLocation)
-      );
-    }
+    yield put(actions.evalInterpreterError([result.error], workspaceLocation));
     return;
   } else if (result.status === 'suspended') {
     yield put(actions.endDebuggerPause(workspaceLocation));

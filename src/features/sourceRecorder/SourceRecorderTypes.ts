@@ -1,6 +1,6 @@
 import { Ace } from 'ace-builds/ace';
 import { SideContentType } from 'src/commons/sideContent/SideContentTypes';
-import { Variant } from 'x-slang/dist/types';
+import { Variant } from 'src/ocontract-integration';
 
 import { Position } from '../../commons/editor/EditorTypes';
 

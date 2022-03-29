@@ -1,4 +1,4 @@
-import { SourceDocumentation } from 'x-slang';
+import { SourceDocumentation } from 'src/ocontract-integration';
 
 const externalLibrariesDocumentation = {};
 

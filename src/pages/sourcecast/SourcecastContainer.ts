@@ -1,7 +1,8 @@
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Variant } from 'x-slang/dist/types';
+import Constants from 'src/commons/utils/Constants';
+import { Variant } from 'src/ocontract-integration';
 
 import {
   beginDebuggerPause,
@@ -74,7 +75,7 @@ const mapStateToProps: MapStateToProps<StateProps, {}, OverallState> = state => 
   sideContentActiveTab: state.workspaces.sourcecast.sideContentActiveTab,
   sideContentHeight: state.workspaces.sourcecast.sideContentHeight,
   sourcecastIndex: state.workspaces.sourcecast.sourcecastIndex,
-  sourceVariant: state.workspaces.sourcecast.context.variant,
+  sourceVariant: Constants.defaultSourceVariant,
   uid: state.workspaces.sourcecast.uid
 });
 

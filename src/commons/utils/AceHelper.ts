@@ -1,5 +1,5 @@
-import { HighlightRulesSelector, ModeSelector } from 'x-slang/dist/editors/ace/modes/source';
-import { Variant } from 'x-slang/dist/types';
+import { HighlightRulesSelector, ModeSelector } from 'src/commons/editor/ace/mode';
+import { Variant } from 'src/ocontract-integration';
 
 /**
  * This _modifies global state_ and defines a new Ace mode globally, if it does not already exist.

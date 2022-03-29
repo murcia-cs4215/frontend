@@ -1,6 +1,6 @@
+import { Context } from 'ocontract-slang/build/runtimeTypes';
+import { Variant } from 'src/ocontract-integration';
 import { action } from 'typesafe-actions';
-import { Context } from 'x-slang';
-import { Variant } from 'x-slang/dist/types';
 
 import { SET_EDITOR_READONLY } from '../../features/sourceRecorder/sourcecast/SourcecastTypes';
 import { SourceLanguage } from '../application/ApplicationTypes';

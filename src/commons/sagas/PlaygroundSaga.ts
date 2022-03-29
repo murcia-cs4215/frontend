@@ -2,7 +2,7 @@ import { compressToEncodedURIComponent } from 'lz-string';
 import * as qs from 'query-string';
 import { SagaIterator } from 'redux-saga';
 import { call, delay, put, race, select } from 'redux-saga/effects';
-import { Variant } from 'x-slang/dist/types';
+import { Variant } from 'src/ocontract-integration';
 
 import {
   changeQueryString,
@@ -62,10 +62,7 @@ function* updateQueryString() {
     return;
   }
   const codeString: string = code as string;
-  const variant: Variant = yield select(
-    (state: OverallState) => state.workspaces.playground.context.variant
-  );
-
+  const variant: Variant = Constants.defaultSourceVariant;
   const execTime: number = yield select(
     (state: OverallState) => state.workspaces.playground.execTime
   );

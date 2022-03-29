@@ -11,7 +11,7 @@ import Constants from 'src/commons/utils/Constants';
 import { stringParamToInt } from 'src/commons/utils/ParamParseHelper';
 import { parseQuery } from 'src/commons/utils/QueryHelper';
 import { initSession, log } from 'src/features/eventLogging';
-import { Variant } from 'x-slang/dist/types';
+import { Variant } from 'src/ocontract-integration';
 
 import {
   InterpreterOutput,

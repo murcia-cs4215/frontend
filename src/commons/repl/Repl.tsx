@@ -2,9 +2,7 @@ import { Card, Classes, Pre } from '@blueprintjs/core';
 import classNames from 'classnames';
 import * as React from 'react';
 import { HotKeys } from 'react-hotkeys';
-import { parseError } from 'x-slang';
-import { Variant } from 'x-slang/dist/types';
-import { stringify } from 'x-slang/dist/utils/stringify';
+import { parseError, stringify, Variant } from 'src/ocontract-integration';
 
 import { InterpreterOutput } from '../application/ApplicationTypes';
 import SideContentCanvasOutput from '../sideContent/SideContentCanvasOutput';

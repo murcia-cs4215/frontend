@@ -3,6 +3,7 @@ import { History } from 'history';
 import { throttle } from 'lodash';
 import { applyMiddleware, compose, createStore as _createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import Constants from 'src/commons/utils/Constants';
 
 import { defaultState } from '../commons/application/ApplicationTypes';
 import createRootReducer from '../commons/application/reducers/RootReducer';
@@ -61,9 +62,7 @@ function loadStore(loadedStore: SavedState | undefined) {
           : defaultState.workspaces.playground.isEditorAutorun,
         context: {
           ...defaultState.workspaces.playground.context,
-          variant: loadedStore.playgroundSourceVariant
-            ? loadedStore.playgroundSourceVariant
-            : defaultState.workspaces.playground.context.variant
+          variant: Constants.defaultSourceVariant
         }
       }
     }
