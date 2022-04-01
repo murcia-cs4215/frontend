@@ -259,7 +259,7 @@ export function* evalCode(
 
   // Do not write interpreter output to REPL, if executing chunks (e.g. prepend/postpend blocks)
   if (actionType !== EVAL_SILENT) {
-    yield put(actions.evalInterpreterSuccess(result.value, workspaceLocation));
+    yield put(actions.evalInterpreterSuccess(result, workspaceLocation));
   }
 
   // For EVAL_EDITOR and EVAL_REPL, we send notification to workspace that a program has been evaluated
