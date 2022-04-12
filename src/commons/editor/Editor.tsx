@@ -2,9 +2,9 @@
 import { Ace, require as acequire } from 'ace-builds';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/src-noconflict/ext-searchbox';
-import 'x-slang/dist/editors/ace/theme/source';
+import 'src/commons/editor/ace/theme';
 
-import { Variant } from 'x-slang/dist/types';
+import { Variant } from 'src/ocontract-integration';
 import * as React from 'react';
 import AceEditor, { IAceEditorProps, IEditorProps } from 'react-ace';
 import * as AceBuilds from 'ace-builds';

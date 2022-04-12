@@ -2,7 +2,8 @@ import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
 import { SideContentType } from 'src/commons/sideContent/SideContentTypes';
-import { Variant } from 'x-slang/dist/types';
+import Constants from 'src/commons/utils/Constants';
+import { Variant } from 'src/ocontract-integration';
 
 import {
   beginDebuggerPause,
@@ -63,7 +64,7 @@ const mapStateToProps: MapStateToProps<StateProps, {}, OverallState> = state => 
   queryString: state.playground.queryString,
   shortURL: state.playground.shortURL,
   replValue: state.workspaces.playground.replValue,
-  sourceVariant: state.workspaces.playground.context.variant,
+  sourceVariant: Constants.defaultSourceVariant,
   sharedbConnected: state.workspaces.playground.sharedbConnected,
   persistenceUser: state.session.googleUser
 });

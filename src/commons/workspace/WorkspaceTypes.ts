@@ -1,4 +1,4 @@
-import { Context } from 'x-slang';
+import { Context } from 'ocontract-slang/build/runtimeTypes';
 
 import { SourcecastWorkspaceState } from '../../features/sourceRecorder/sourcecast/SourcecastTypes';
 import { SourcereelWorkspaceState } from '../../features/sourceRecorder/sourcereel/SourcereelTypes';

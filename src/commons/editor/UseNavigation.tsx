@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { createContext, hasDeclaration } from 'x-slang';
 
 import { Links } from '../utils/Constants';
 import { EditorHook } from './Editor';
@@ -25,15 +24,6 @@ const useNavigation: EditorHook = (inProps, outProps, keyBindings, reactAceRef) 
 
     const newPos = editor.selection.getCursor();
     if (newPos.row !== pos.row || newPos.column !== pos.column) {
-      return;
-    }
-
-    if (
-      hasDeclaration(editor.getValue(), createContext(sourceVariant), {
-        line: newPos.row + 1, // getCursorPosition returns 0-indexed row, function here takes in 1-indexed row
-        column: newPos.column
-      })
-    ) {
       return;
     }
 

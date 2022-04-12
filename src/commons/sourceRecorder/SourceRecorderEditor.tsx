@@ -1,6 +1,6 @@
 import 'ace-builds/src-noconflict/ext-searchbox';
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'x-slang/dist/editors/ace/theme/source';
+import 'src/commons/editor/ace/theme';
 
 import { isEqual } from 'lodash';
 import * as React from 'react';

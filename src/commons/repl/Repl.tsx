@@ -1,12 +1,12 @@
 import { Card, Classes, Pre } from '@blueprintjs/core';
 import classNames from 'classnames';
+import { Finished } from 'ocontract-slang/build/runtimeTypes';
+import { formatFinishedForRepl } from 'ocontract-slang/build/utils/formatters';
 import * as React from 'react';
 import { HotKeys } from 'react-hotkeys';
-import { parseError } from 'x-slang';
-import { Variant } from 'x-slang/dist/types';
-import { stringify } from 'x-slang/dist/utils/stringify';
+import { parseError, Variant } from 'src/ocontract-integration';
 
-import { InterpreterOutput } from '../application/ApplicationTypes';
+import { InterpreterOutput, ResultOutput } from '../application/ApplicationTypes';
 import SideContentCanvasOutput from '../sideContent/SideContentCanvasOutput';
 import ReplInput from './ReplInput';
 import { OutputProps } from './ReplTypes';
@@ -69,17 +69,18 @@ export const Output: React.FC<OutputProps> = (props: OutputProps) => {
         </Card>
       );
     case 'result':
+      console.dir(props.output, { depth: 4 });
       if (props.output.consoleLogs.length === 0) {
         return (
           <Card>
-            <Pre className="resultOutput">{renderResult(props.output.value)}</Pre>
+            <Pre className="resultOutput">{renderResult(props.output)}</Pre>
           </Card>
         );
       } else {
         return (
           <Card>
             <Pre className="logOutput">{props.output.consoleLogs.join('\n')}</Pre>
-            <Pre className="resultOutput">{renderResult(props.output.value)}</Pre>
+            <Pre className="resultOutput">{renderResult(props.output)}</Pre>
           </Card>
         );
       }
@@ -104,13 +105,13 @@ export const Output: React.FC<OutputProps> = (props: OutputProps) => {
   }
 };
 
-const renderResult = (value: any) => {
+const renderResult = (output: ResultOutput) => {
   /** A class which is the output of the show() function */
   const ShapeDrawn = (window as any).ShapeDrawn;
-  if (typeof ShapeDrawn !== 'undefined' && value instanceof ShapeDrawn) {
-    return <SideContentCanvasOutput canvas={value.$canvas} />;
+  if (typeof ShapeDrawn !== 'undefined' && output.value instanceof ShapeDrawn) {
+    return <SideContentCanvasOutput canvas={output.value.$canvas} />;
   } else {
-    return stringify(value);
+    return formatFinishedForRepl(output.value as Finished);
   }
 };
 

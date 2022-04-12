@@ -1,8 +1,8 @@
 /* tslint:disable: ban-types*/
 import { difference, keys } from 'lodash';
-import createSlangContext, { defineBuiltin } from 'x-slang/dist/createContext';
-import { Context, CustomBuiltIns, Value, Variant } from 'x-slang/dist/types';
-import { stringify } from 'x-slang/dist/utils/stringify';
+import { createContext as ocontractCreateContext } from 'ocontract-slang/build/context';
+import { Context, Value } from 'ocontract-slang/build/runtimeTypes';
+import { stringify, Variant } from 'src/ocontract-integration';
 
 import { handleConsoleLog } from '../application/actions/InterpreterActions';
 import Constants from './Constants';
@@ -131,15 +131,7 @@ export function createContext<T>(
   variant: Variant = Constants.defaultSourceVariant,
   moduleParams?: any
 ) {
-  return createSlangContext<T>(variant, externals, externalContext, externalBuiltIns, moduleParams);
-}
-
-// Assumes that the grader doesn't need additional external libraries apart from the standard
-// libraries (lists, streams).
-function loadStandardLibraries(proxyContext: Context, _: CustomBuiltIns) {
-  defineBuiltin(proxyContext, 'makeUndefinedErrorFunction', (fname: string) => () => {
-    throw new Error(`Name ${fname} not declared.`);
-  });
+  return ocontractCreateContext(externals, externalContext);
 }
 
 // Given a Context, returns a privileged Context that when referenced,
@@ -194,7 +186,6 @@ export function makeElevatedContext(context: Context) {
       }
     }
   });
-  loadStandardLibraries(elevatedContext, externalBuiltIns);
   return elevatedContext;
 }
 

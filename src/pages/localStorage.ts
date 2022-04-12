@@ -1,5 +1,6 @@
 import { compressToUTF16, decompressFromUTF16 } from 'lz-string';
-import { Variant } from 'x-slang/dist/types';
+import Constants from 'src/commons/utils/Constants';
+import { Variant } from 'src/ocontract-integration';
 
 import { OverallState } from '../commons/application/ApplicationTypes';
 import { SessionState } from '../commons/application/types/SessionTypes';
@@ -41,7 +42,7 @@ export const saveState = (state: OverallState) => {
       },
       playgroundEditorValue: state.workspaces.playground.editorValue,
       playgroundIsEditorAutorun: state.workspaces.playground.isEditorAutorun,
-      playgroundSourceVariant: state.workspaces.playground.context.variant
+      playgroundSourceVariant: Constants.defaultSourceVariant
     };
     const serialized = compressToUTF16(JSON.stringify(stateToBeSaved));
     localStorage.setItem('storedState', serialized);

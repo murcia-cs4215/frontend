@@ -1,5 +1,5 @@
-import { Variant } from 'x-slang/dist';
-import { SourceError } from 'x-slang/dist/types';
+import { SourceError } from 'ocontract-slang/build/errors/types';
+import { Variant } from 'src/ocontract-integration';
 
 import { PlaygroundState } from '../../features/playground/PlaygroundTypes';
 import { PlaybackStatus, RecordingStatus } from '../../features/sourceRecorder/SourceRecorderTypes';
@@ -93,13 +93,13 @@ export type SourceLanguage = {
   displayName: string;
 };
 
-const variantDisplay: Map<Variant, string> = new Map([['calc', 'Calculator']]);
+const variantDisplay: Map<Variant, string> = new Map([['ocontract', 'OContract']]);
 
 export const styliseSublanguage = (variant: Variant = Constants.defaultSourceVariant) => {
   return `Source \xa7${variantDisplay.has(variant) ? ` ${variantDisplay.get(variant)}` : ''}`;
 };
 
-const sublanguages: { variant: Variant }[] = [{ variant: 'calc' }];
+const sublanguages: { variant: Variant }[] = [{ variant: 'ocontract' }];
 
 export const sourceLanguages = sublanguages.map(sublang => {
   return {

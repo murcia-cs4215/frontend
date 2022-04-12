@@ -1,4 +1,4 @@
-import { Context } from 'x-slang/dist/types';
+import { Context } from 'ocontract-slang/build/runtimeTypes';
 
 import { handleConsoleLog } from '../application/actions/InterpreterActions';
 

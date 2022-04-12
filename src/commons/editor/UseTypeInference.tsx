@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { createContext, getTypeInformation } from 'x-slang';
 
 import { EditorHook } from './Editor';
 
@@ -11,11 +10,11 @@ import { EditorHook } from './Editor';
 // reactAceRef is the underlying reactAce instance for hooking.
 
 const useTypeInference: EditorHook = (inProps, outProps, keyBindings, reactAceRef) => {
-  const { sourceVariant, handleSendReplInputToOutput } = inProps;
+  const { handleSendReplInputToOutput } = inProps;
 
   const handleTypeInferenceDisplay = React.useCallback(() => {
     const editor = reactAceRef.current!.editor;
-    const code = editor.getValue();
+    // const code = editor.getValue();
     const pos = editor.getCursorPosition();
     const token = editor.session.getTokenAt(pos.row, pos.column);
 
@@ -37,12 +36,7 @@ const useTypeInference: EditorHook = (inProps, outProps, keyBindings, reactAceRe
         if (token.type === 'comment') {
           return;
         }
-        const str = getTypeInformation(
-          code,
-          createContext(sourceVariant),
-          { line: pos.row + 1, column: pos.column },
-          token.value
-        );
+        const str = '';
         output = commentEveryLine(str);
         if (str.length === 0) {
           output = '// type information not found';
@@ -52,7 +46,7 @@ const useTypeInference: EditorHook = (inProps, outProps, keyBindings, reactAceRe
       }
       handleSendReplInputToOutput(output);
     }
-  }, [reactAceRef, handleSendReplInputToOutput, sourceVariant]);
+  }, [reactAceRef, handleSendReplInputToOutput]);
 
   keyBindings.typeInferenceDisplay = handleTypeInferenceDisplay;
 };

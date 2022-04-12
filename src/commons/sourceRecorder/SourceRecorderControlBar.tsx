@@ -1,7 +1,7 @@
 import { Slider } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import * as React from 'react';
-import { Variant } from 'x-slang/dist/types';
+import { Variant } from 'src/ocontract-integration';
 
 import {
   CodeDelta,

@@ -2,7 +2,7 @@ import { Button, Classes, Menu, MenuItem } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import { ItemListRenderer, ItemRenderer, Select } from '@blueprintjs/select';
 import * as React from 'react';
-import { Variant } from 'x-slang/dist/types';
+import { Variant } from 'src/ocontract-integration';
 
 import {
   SourceLanguage,

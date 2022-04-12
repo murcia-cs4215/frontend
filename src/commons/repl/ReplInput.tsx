@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AceEditor from 'react-ace';
-import { Variant } from 'x-slang/dist/types';
+import { Variant } from 'src/ocontract-integration';
 
 import { getModeString, selectMode } from '../utils/AceHelper';
 // source mode and chapter imported in Editor.tsx
