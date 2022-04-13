@@ -50,7 +50,7 @@
     "lz-string": "^1.4.4",
     "moment": "^2.29.0",
     "normalize.css": "^8.0.1",
-    "ocontract": "murcia-cs4215/ocontract#87ad10206045ddcf2577cdef25c58c04635c339d",
+    "ocontract": "murcia-cs4215/ocontract#eb67ce69f6d3e2d2191473d6faa7846e38bef38c",
     "phaser": "^3.24.1",
     "query-string": "^6.13.5",
     "re-resizable": "^6.6.1",
