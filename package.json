@@ -142,5 +142,8 @@
   "resolutions": {
     "**/@typescript-eslint/eslint-plugin": "^4.3.0",
     "**/@typescript-eslint/parser": "^4.3.0"
+  },
+  "optionalDependencies": {
+    "babel-loader": "8.1.0"
   }
 }
