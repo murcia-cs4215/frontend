@@ -1,4 +1,4 @@
-const publicURL = process.env.PUBLIC_URL || '';
+const publicURL = window.PUBLIC_URL || '';
 
 /**
  * Load a given external library, as a javascript file
