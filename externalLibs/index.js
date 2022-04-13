@@ -1,21 +1,23 @@
+const publicURL = process.env.PUBLIC_URL || '';
+
 /**
  * Load a given external library, as a javascript file
  * to run in the global scope, by adding it to the DOM
  */
 function dynamicallyLoadScript(url) {
-  var script = document.createElement('script')
-  script.src = url
+  var script = document.createElement('script');
+  script.src = `${publicURL}${url}`;
   /** Forces scripts to be loaded in order. */
-  script.async = false
-  script.defer = true
+  script.async = false;
+  script.defer = true;
   // make sure document.body exists, since the scripts we load
   // assume that it does
   if (document.body) {
-    document.body.appendChild(script)
+    document.body.appendChild(script);
   } else {
-    var observer = new MutationObserver(function() {
+    var observer = new MutationObserver(function () {
       if (document.body) {
-        document.body.appendChild(script)
+        document.body.appendChild(script);
         observer.disconnect();
       }
     });
@@ -55,11 +57,11 @@ function loadAllLibs() {
     // env visualizer
     '/externalLibs/env_visualizer/ConcreteJs.js',
     '/externalLibs/env_visualizer/visualizer.js'
-  ]
+  ];
 
   for (var i = 0; i < files.length; i++) {
-    dynamicallyLoadScript(files[i])
+    dynamicallyLoadScript(files[i]);
   }
 }
 
-loadAllLibs()
+loadAllLibs();
