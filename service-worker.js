@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://source-academy.github.io/precache-manifest.30ef7222f8a54faa589a34cc1bfd08ae.js"
+  "https://zhuhanming.github.io/murcia-frontend/precache-manifest.8882d261b85185ce38574981983fb2d4.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("https://source-academy.github.io/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("https://zhuhanming.github.io/murcia-frontend/index.html"), {
   
   blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/,/^\/source/,/^\/sicp/,/^\/modules/,/^\/ev3-source/],
 });
