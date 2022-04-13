@@ -23,9 +23,10 @@ const NavigationBar: React.SFC<NavigationBarProps> = props => (
         activeClassName={Classes.ACTIVE}
         className={classNames('NavigationBar__link', Classes.BUTTON, Classes.MINIMAL)}
         to="/"
+        isActive={() => false}
       >
         <Icon icon={IconNames.CODE} />
-        <div className="navbar-button-text hidden-xs">{'Source Academy Playground'}</div>
+        <div className="navbar-button-text hidden-xs">{'OContract Demonstration'}</div>
       </NavLink>
       {/* {props.role && (
         <NavLink

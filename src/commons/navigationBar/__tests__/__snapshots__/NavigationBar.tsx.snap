@@ -3,10 +3,10 @@
 exports[`NavigationBar renders "Not logged in" correctly 1`] = `
 "<Blueprint3.Navbar className=\\"NavigationBar primary-navbar bp3-dark\\">
   <Blueprint3.NavbarGroup align=\\"left\\">
-    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/\\">
+    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/\\" isActive={[Function: isActive]}>
       <Blueprint3.Icon icon=\\"code\\" />
       <div className=\\"navbar-button-text hidden-xs\\">
-        Source Academy Playground
+        OContract Demonstration
       </div>
     </NavLink>
   </Blueprint3.NavbarGroup>
@@ -24,10 +24,10 @@ exports[`NavigationBar renders "Not logged in" correctly 1`] = `
 exports[`NavigationBar renders correctly with username 1`] = `
 "<Blueprint3.Navbar className=\\"NavigationBar primary-navbar bp3-dark\\">
   <Blueprint3.NavbarGroup align=\\"left\\">
-    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/\\">
+    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/\\" isActive={[Function: isActive]}>
       <Blueprint3.Icon icon=\\"code\\" />
       <div className=\\"navbar-button-text hidden-xs\\">
-        Source Academy Playground
+        OContract Demonstration
       </div>
     </NavLink>
   </Blueprint3.NavbarGroup>
