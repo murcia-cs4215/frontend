@@ -126,7 +126,7 @@ export const defaultApplication: ApplicationState = {
 
 export const defaultPlayground: PlaygroundState = {};
 
-export const defaultEditorValue = '1 + 1';
+export const defaultEditorValue = '1 + 1;;';
 
 /**
  * Create a default IWorkspaceState for 'resetting' a workspace.
