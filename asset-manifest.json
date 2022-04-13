@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "https://source-academy.github.io/static/css/main.ab8d1b5e.css",
+    "main.js": "https://source-academy.github.io/static/js/main.4dc2357b.js",
+    "main.js.map": "https://source-academy.github.io/static/js/main.4dc2357b.js.map",
+    "index.html": "https://source-academy.github.io/index.html",
+    "precache-manifest.30ef7222f8a54faa589a34cc1bfd08ae.js": "https://source-academy.github.io/precache-manifest.30ef7222f8a54faa589a34cc1bfd08ae.js",
+    "service-worker.js": "https://source-academy.github.io/service-worker.js",
+    "static/css/main.ab8d1b5e.css.map": "https://source-academy.github.io/static/css/main.ab8d1b5e.css.map",
+    "static/js/main.4dc2357b.js.LICENSE.txt": "https://source-academy.github.io/static/js/main.4dc2357b.js.LICENSE.txt",
+    "static/media/index.scss": "https://source-academy.github.io/static/media/no_page_background.61832e2d.jpg"
+  },
+  "entrypoints": [
+    "static/css/main.ab8d1b5e.css",
+    "static/js/main.4dc2357b.js"
+  ]
+}
