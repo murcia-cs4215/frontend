@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "https://zhuhanming.github.io/murcia-frontend/static/css/main.aa2f80cb.css",
-    "main.js": "https://zhuhanming.github.io/murcia-frontend/static/js/main.d9aa571d.js",
-    "main.js.map": "https://zhuhanming.github.io/murcia-frontend/static/js/main.d9aa571d.js.map",
+    "main.js": "https://zhuhanming.github.io/murcia-frontend/static/js/main.f90dea5f.js",
+    "main.js.map": "https://zhuhanming.github.io/murcia-frontend/static/js/main.f90dea5f.js.map",
     "index.html": "https://zhuhanming.github.io/murcia-frontend/index.html",
-    "precache-manifest.685d684fda8b994cdabf72742d166ea1.js": "https://zhuhanming.github.io/murcia-frontend/precache-manifest.685d684fda8b994cdabf72742d166ea1.js",
+    "precache-manifest.c9938639392f6ed87f02cb4155d8ad34.js": "https://zhuhanming.github.io/murcia-frontend/precache-manifest.c9938639392f6ed87f02cb4155d8ad34.js",
     "service-worker.js": "https://zhuhanming.github.io/murcia-frontend/service-worker.js",
     "static/css/main.aa2f80cb.css.map": "https://zhuhanming.github.io/murcia-frontend/static/css/main.aa2f80cb.css.map",
-    "static/js/main.d9aa571d.js.LICENSE.txt": "https://zhuhanming.github.io/murcia-frontend/static/js/main.d9aa571d.js.LICENSE.txt",
+    "static/js/main.f90dea5f.js.LICENSE.txt": "https://zhuhanming.github.io/murcia-frontend/static/js/main.f90dea5f.js.LICENSE.txt",
     "static/media/index.scss": "https://zhuhanming.github.io/murcia-frontend/static/media/no_page_background.61832e2d.jpg"
   },
   "entrypoints": [
     "static/css/main.aa2f80cb.css",
-    "static/js/main.d9aa571d.js"
+    "static/js/main.f90dea5f.js"
   ]
 }
