@@ -19,7 +19,7 @@ export default function* PlaygroundSaga(): SagaIterator {
   yield takeEvery(GENERATE_LZ_STRING, updateQueryString);
 
   yield takeEvery(SHORTEN_URL, function* (action: ReturnType<typeof shortenURL>) {
-    const queryString = yield select((state: OverallState) => state.playground.queryString);
+    const queryString: string = yield select((state: OverallState) => state.playground.queryString);
     const keyword = action.payload;
     const errorMsg = 'ERROR';
 
@@ -38,18 +38,22 @@ export default function* PlaygroundSaga(): SagaIterator {
 
     if (!resp || timeout) {
       yield put(updateShortURL(errorMsg));
-      return yield call(showWarningMessage, 'Something went wrong trying to create the link.');
+      return (yield call(
+        showWarningMessage,
+        'Something went wrong trying to create the link.'
+      )) as string;
     }
 
     if (resp.status !== 'success' && !resp.shorturl) {
       yield put(updateShortURL(errorMsg));
-      return yield call(showWarningMessage, resp.message);
+      return (yield call(showWarningMessage, resp.message)) as string;
     }
 
     if (resp.status !== 'success') {
       yield call(showSuccessMessage, resp.message);
     }
     yield put(updateShortURL(resp.shorturl));
+    return '';
   });
 }
 
@@ -82,28 +86,5 @@ export async function shortenURLRequest(
   queryString: string,
   keyword: string
 ): Promise<Response | null> {
-  const url = `${window.location.protocol}//${window.location.host}/playground#${queryString}`;
-
-  const params = {
-    signature: Constants.urlShortenerSignature,
-    action: 'shorturl',
-    format: 'json',
-    keyword,
-    url
-  };
-  const fetchOpts: RequestInit = {
-    method: 'POST',
-    body: Object.entries(params).reduce((formData, [k, v]) => {
-      formData.append(k, v!);
-      return formData;
-    }, new FormData())
-  };
-
-  const resp = await fetch(Constants.urlShortener!, fetchOpts);
-  if (!resp || !resp.ok) {
-    return null;
-  }
-
-  const res = await resp.json();
-  return res;
+  return null;
 }

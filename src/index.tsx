@@ -1,6 +1,5 @@
 import 'src/styles/index.scss';
 
-import * as Sentry from '@sentry/browser';
 import { ConnectedRouter } from 'connected-react-router';
 import * as React from 'react';
 import { render } from 'react-dom';
@@ -12,16 +11,6 @@ import { showWarningMessage } from 'src/commons/utils/NotificationsHelper';
 import { register as registerServiceWorker } from 'src/commons/utils/RegisterServiceWorker';
 import { triggerSyncLogs } from 'src/features/eventLogging/client';
 import { store } from 'src/pages/createStore';
-
-if (Constants.sentryDsn) {
-  Sentry.init({
-    dsn: Constants.sentryDsn,
-    environment: Constants.sourceAcademyEnvironment,
-    release: `cadet-frontend@${Constants.sourceAcademyVersion}`
-  });
-  const userId = store.getState().session.userId;
-  Sentry.setUser(typeof userId !== 'undefined' ? { id: userId.toString() } : null);
-}
 
 const rootContainer = document.getElementById('root') as HTMLElement;
 (window as any).__REDUX_STORE__ = store; // need this for slang's display

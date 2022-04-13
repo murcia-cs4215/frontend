@@ -22,7 +22,7 @@ export const showWarningMessage = (
   message: string | JSX.Element,
   timeout: number = 2000,
   key?: string
-) =>
+): string =>
   notification.show(
     {
       intent: Intent.WARNING,

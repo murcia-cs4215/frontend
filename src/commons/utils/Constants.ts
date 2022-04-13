@@ -1,10 +1,6 @@
 import moment, { Moment } from 'moment';
 import { Variant } from 'src/ocontract-integration';
 
-function isTrue(value?: string): boolean {
-  return typeof value === 'string' && value.toUpperCase() === 'TRUE';
-}
-
 const isTest = process.env.NODE_ENV === 'test';
 
 const sourceAcademyVersion = process.env.REACT_APP_VERSION || 'local';
@@ -12,19 +8,11 @@ const sourceAcademyEnvironment = process.env.REACT_APP_ENVIRONMENT || 'dev';
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const cadetLoggerUrl = isTest ? undefined : process.env.REACT_APP_CADET_LOGGER;
 const cadetLoggerInterval = parseInt(process.env.REACT_APP_CADET_LOGGER_INTERVAL || '10000', 10);
-const useBackend = !isTest && isTrue(process.env.REACT_APP_USE_BACKEND);
 const defaultSourceVariant: Variant = 'ocontract';
 const defaultQuestionId = 0;
 const maxBrowseIndex = 50;
-const urlShortener = process.env.REACT_APP_URL_SHORTENER_DOMAIN;
-const urlShortenerSignature = process.env.REACT_APP_URL_SHORTENER_SIGNATURE;
 const moduleBackendUrl = process.env.REACT_APP_MODULE_BACKEND_URL || 'modules';
-const sharedbBackendUrl = process.env.REACT_APP_SHAREDB_BACKEND_URL || '';
 const playgroundOnly = true;
-const sentryDsn = process.env.REACT_APP_SENTRY_DSN;
-const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-const googleAppId = process.env.REACT_APP_GOOGLE_APP_ID;
 
 const authProviders: Map<
   string,
@@ -98,20 +86,12 @@ const Constants = {
   sourceAcademyEnvironment,
   backendUrl,
   cadetLoggerUrl,
-  useBackend,
   defaultSourceVariant,
   defaultQuestionId,
   maxBrowseIndex,
-  urlShortener,
-  urlShortenerSignature,
   moduleBackendUrl,
   authProviders,
   playgroundOnly,
-  sentryDsn,
-  googleClientId,
-  googleApiKey,
-  googleAppId,
-  sharedbBackendUrl,
   disablePeriods,
   cadetLoggerInterval
 };

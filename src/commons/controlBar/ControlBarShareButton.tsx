@@ -4,7 +4,6 @@ import * as React from 'react';
 import * as CopyToClipboard from 'react-copy-to-clipboard';
 
 import controlButton from '../ControlButton';
-import Constants from '../utils/Constants';
 
 type ControlBarShareButtonProps = DispatchProps & StateProps;
 
@@ -38,11 +37,7 @@ export class ControlBarShareButton extends React.PureComponent<ControlBarShareBu
   }
 
   public render() {
-    let url = '';
-    const { urlShortener } = Constants;
-    if (urlShortener) {
-      url = urlShortener.split('/').slice(0, -1).join('/') + '/';
-    }
+    const url = '';
 
     return (
       <Popover popoverClassName="Popover-share" inheritDarkTheme={false}>
