@@ -1,4 +1,4 @@
-import { Context } from 'ocontract-slang/build/runtimeTypes';
+import { Context } from 'ocontract/build/runtimeTypes';
 
 import { handleConsoleLog } from '../application/actions/InterpreterActions';
 

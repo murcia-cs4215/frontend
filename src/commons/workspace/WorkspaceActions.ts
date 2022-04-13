@@ -1,4 +1,4 @@
-import { Context } from 'ocontract-slang/build/runtimeTypes';
+import { Context } from 'ocontract/build/runtimeTypes';
 import { Variant } from 'src/ocontract-integration';
 import { action } from 'typesafe-actions';
 

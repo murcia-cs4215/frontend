@@ -1,4 +1,4 @@
-import { SourceError } from 'ocontract-slang/build/errors/types';
+import { SourceError } from 'ocontract/build/errors/types';
 import { Variant } from 'src/ocontract-integration';
 
 import { PlaygroundState } from '../../features/playground/PlaygroundTypes';

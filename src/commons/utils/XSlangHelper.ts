@@ -1,7 +1,7 @@
 /* tslint:disable: ban-types*/
 import { difference, keys } from 'lodash';
-import { createContext as ocontractCreateContext } from 'ocontract-slang/build/context';
-import { Context, Value } from 'ocontract-slang/build/runtimeTypes';
+import { createContext as ocontractCreateContext } from 'ocontract/build/context';
+import { Context, Value } from 'ocontract/build/runtimeTypes';
 import { stringify, Variant } from 'src/ocontract-integration';
 
 import { handleConsoleLog } from '../application/actions/InterpreterActions';

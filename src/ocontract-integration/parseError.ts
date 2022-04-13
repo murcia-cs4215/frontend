@@ -1,4 +1,4 @@
-import { SourceError } from 'ocontract-slang/build/errors/types';
+import { SourceError } from 'ocontract/build/errors/types';
 
 const verboseErrors = false;
 export function parseError(errors: SourceError[], verbose: boolean = verboseErrors): string {

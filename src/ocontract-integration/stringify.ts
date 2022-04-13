@@ -1,6 +1,6 @@
-import { Value } from 'ocontract-slang/build/runtimeTypes';
-import { Type } from 'ocontract-slang/build/types/types';
-import { formatType } from 'ocontract-slang/build/utils/formatters';
+import { Value } from 'ocontract/build/runtimeTypes';
+import { Type } from 'ocontract/build/types/types';
+import { formatType } from 'ocontract/build/utils/formatters';
 import { MAX_LIST_DISPLAY_LENGTH } from 'src/ocontract-integration';
 
 function makeIndent(indent: number | string): string {

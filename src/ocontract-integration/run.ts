@@ -1,11 +1,11 @@
-import { cleanUpContextAfterRun, prepareContextForRun } from 'ocontract-slang/build/context';
-import { monitorProgram } from 'ocontract-slang/build/contracts/static/contractMonitor';
-import { SourceError } from 'ocontract-slang/build/errors/types';
-import { evaluate } from 'ocontract-slang/build/interpreter/interpreter';
-import { parse } from 'ocontract-slang/build/parser/parser';
-import { StringWrapper } from 'ocontract-slang/build/parser/wrappers';
-import { Context, Result } from 'ocontract-slang/build/runtimeTypes';
-import { typeCheck } from 'ocontract-slang/build/types/static';
+import { cleanUpContextAfterRun, prepareContextForRun } from 'ocontract/build/context';
+import { monitorProgram } from 'ocontract/build/contracts/static/contractMonitor';
+import { SourceError } from 'ocontract/build/errors/types';
+import { evaluate } from 'ocontract/build/interpreter/interpreter';
+import { parse } from 'ocontract/build/parser/parser';
+import { StringWrapper } from 'ocontract/build/parser/wrappers';
+import { Context, Result } from 'ocontract/build/runtimeTypes';
+import { typeCheck } from 'ocontract/build/types/static';
 
 export function run(code: string, context: Context): Result {
   try {

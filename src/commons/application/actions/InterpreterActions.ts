@@ -1,5 +1,5 @@
-import { SourceError } from 'ocontract-slang/build/errors/types';
-import { Value } from 'ocontract-slang/build/runtimeTypes';
+import { SourceError } from 'ocontract/build/errors/types';
+import { Value } from 'ocontract/build/runtimeTypes';
 import { action } from 'typesafe-actions';
 
 import { WorkspaceLocation } from '../../workspace/WorkspaceTypes';

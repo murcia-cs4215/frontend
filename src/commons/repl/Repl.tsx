@@ -1,7 +1,7 @@
 import { Card, Classes, Pre } from '@blueprintjs/core';
 import classNames from 'classnames';
-import { Finished } from 'ocontract-slang/build/runtimeTypes';
-import { formatFinishedForRepl } from 'ocontract-slang/build/utils/formatters';
+import { Finished } from 'ocontract/build/runtimeTypes';
+import { formatFinishedForRepl } from 'ocontract/build/utils/formatters';
 import * as React from 'react';
 import { HotKeys } from 'react-hotkeys';
 import { parseError, Variant } from 'src/ocontract-integration';

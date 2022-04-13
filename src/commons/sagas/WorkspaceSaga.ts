@@ -1,4 +1,4 @@
-import { Context } from 'ocontract-slang/build/runtimeTypes';
+import { Context } from 'ocontract/build/runtimeTypes';
 import { SagaIterator } from 'redux-saga';
 import { call, put, race, select } from 'redux-saga/effects';
 import Constants from 'src/commons/utils/Constants';
