@@ -81,8 +81,8 @@ export default function* WorkspaceSaga(): SagaIterator {
     action: ReturnType<typeof actions.toggleEditorAutorun>
   ) {
     const workspaceLocation = action.payload.workspaceLocation;
-    const isEditorAutorun = yield select(
-      (state: OverallState) => state.workspaces[workspaceLocation].isEditorAutorun
+    const isEditorAutorun: boolean = yield select(
+      (state: OverallState): boolean => state.workspaces[workspaceLocation].isEditorAutorun
     );
     yield call(showWarningMessage, 'Autorun ' + (isEditorAutorun ? 'Started' : 'Stopped'), 750);
   });
