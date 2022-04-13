@@ -1,12 +1,12 @@
 import moment from 'moment';
 import * as React from 'react';
-import { Redirect, Route, RouteComponentProps, Switch } from 'react-router';
+import { Route, RouteComponentProps, Switch } from 'react-router';
 
-import Contributors from '../../pages/contributors/Contributors';
+// import Contributors from '../../pages/contributors/Contributors';
 import Disabled from '../../pages/disabled/Disabled';
 import NotFound from '../../pages/notFound/NotFound';
 import Playground from '../../pages/playground/PlaygroundContainer';
-import SourcecastContainer from '../../pages/sourcecast/SourcecastContainer';
+// import SourcecastContainer from '../../pages/sourcecast/SourcecastContainer';
 import NavigationBar from '../navigationBar/NavigationBar';
 import Constants from '../utils/Constants';
 import { Role } from './ApplicationTypes';
@@ -51,7 +51,7 @@ class Application extends React.Component<ApplicationProps, ApplicationState> {
   }
 
   public render() {
-    const fullPaths = null;
+    // const fullPaths = null;
     const disabled = !['staff', 'admin'].includes(this.props.role!) && this.state.disabled;
 
     return (
@@ -65,15 +65,15 @@ class Application extends React.Component<ApplicationProps, ApplicationState> {
           )}
           {!disabled && (
             <Switch>
-              <Route path="/playground" component={Playground} />
-              <Route path="/contributors" component={Contributors} />
+              <Route path="/" component={Playground} />
+              {/* <Route path="/contributors" component={Contributors} />
               <Route path="/sourcecast/:sourcecastId?" component={SourcecastContainer} />
               {fullPaths}
               <Route
                 exact={true}
                 path="/"
                 render={Constants.playgroundOnly ? redirectToPlayground : redirectToAcademy}
-              />
+              /> */}
               <Route component={NotFound} />
             </Switch>
           )}
@@ -87,8 +87,8 @@ class Application extends React.Component<ApplicationProps, ApplicationState> {
   );
 }
 
-const redirectToPlayground = () => <Redirect to="/playground" />;
-const redirectToAcademy = () => <Redirect to="/academy" />;
+// const redirectToPlayground = () => <Redirect to="/playground" />;
+// const redirectToAcademy = () => <Redirect to="/academy" />;
 
 function computeDisabledState() {
   const now = moment();
