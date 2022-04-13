@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "https://zhuhanming.github.io/murcia-frontend/static/css/main.aa2f80cb.css",
-    "main.js": "https://zhuhanming.github.io/murcia-frontend/static/js/main.b32e654b.js",
-    "main.js.map": "https://zhuhanming.github.io/murcia-frontend/static/js/main.b32e654b.js.map",
-    "index.html": "https://zhuhanming.github.io/murcia-frontend/index.html",
-    "precache-manifest.d212726ff1fb56259b2ac49147eb3284.js": "https://zhuhanming.github.io/murcia-frontend/precache-manifest.d212726ff1fb56259b2ac49147eb3284.js",
-    "service-worker.js": "https://zhuhanming.github.io/murcia-frontend/service-worker.js",
-    "static/css/main.aa2f80cb.css.map": "https://zhuhanming.github.io/murcia-frontend/static/css/main.aa2f80cb.css.map",
-    "static/js/main.b32e654b.js.LICENSE.txt": "https://zhuhanming.github.io/murcia-frontend/static/js/main.b32e654b.js.LICENSE.txt",
-    "static/media/index.scss": "https://zhuhanming.github.io/murcia-frontend/static/media/no_page_background.61832e2d.jpg"
+    "main.css": "https://murcia-cs4215.github.io/frontend/static/css/main.8b8cc25f.css",
+    "main.js": "https://murcia-cs4215.github.io/frontend/static/js/main.d7fc10a4.js",
+    "main.js.map": "https://murcia-cs4215.github.io/frontend/static/js/main.d7fc10a4.js.map",
+    "index.html": "https://murcia-cs4215.github.io/frontend/index.html",
+    "precache-manifest.69448e49971811b7251fedd510b36c2b.js": "https://murcia-cs4215.github.io/frontend/precache-manifest.69448e49971811b7251fedd510b36c2b.js",
+    "service-worker.js": "https://murcia-cs4215.github.io/frontend/service-worker.js",
+    "static/css/main.8b8cc25f.css.map": "https://murcia-cs4215.github.io/frontend/static/css/main.8b8cc25f.css.map",
+    "static/js/main.d7fc10a4.js.LICENSE.txt": "https://murcia-cs4215.github.io/frontend/static/js/main.d7fc10a4.js.LICENSE.txt",
+    "static/media/index.scss": "https://murcia-cs4215.github.io/frontend/static/media/no_page_background.61832e2d.jpg"
   },
   "entrypoints": [
-    "static/css/main.aa2f80cb.css",
-    "static/js/main.b32e654b.js"
+    "static/css/main.8b8cc25f.css",
+    "static/js/main.d7fc10a4.js"
   ]
 }
