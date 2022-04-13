@@ -9,8 +9,7 @@
  * Reference: https://github.com/source-academy/cadet-frontend/pull/767
  */
 
-// @ts-ignore
-function theme(acequire, exports, _module) {
+export function theme(acequire: any, exports: any, _module: any) {
   exports.isDark = true;
   exports.cssClass = 'ace-source';
   exports.cssText =
@@ -170,5 +169,4 @@ function theme(acequire, exports, _module) {
   dom.importCssString(exports.cssText, exports.cssClass);
 }
 
-// @ts-ignore
 ace.define('ace/theme/source', ['require', 'exports', 'module', 'ace/lib/dom'], theme);

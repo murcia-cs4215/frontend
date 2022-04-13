@@ -36,18 +36,14 @@ export function HighlightRulesSelector(
       }
   )[] = []
 ) {
-  // @ts-ignore
-  function _SourceHighlightRules(acequire, exports, _module) {
-    'use strict';
-
+  function _SourceHighlightRules(acequire: any, exports: any, _module: any) {
     const oop = acequire('../lib/oop');
     // const DocCommentHighlightRules = acequire('./doc_comment_highlight_rules')
     //   .DocCommentHighlightRules;
     const TextHighlightRules = acequire('./text_highlight_rules').TextHighlightRules;
     // const identifierRegex = '[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*';
 
-    // @ts-ignore
-    const SourceHighlightRules = function (options) {
+    const SourceHighlightRules = function (this: any, options: any) {
       const keywordControls = 'if|then|else|let|in';
 
       const storageType = 'int|float|string|char|bool|unit|contract';
@@ -56,7 +52,6 @@ export function HighlightRulesSelector(
 
       const builtinConstants = 'true|false';
 
-      // @ts-ignore
       const keywordMapper = (this.$keywords = this.createKeywordMapper(
         {
           'keyword.control': keywordControls,
@@ -82,7 +77,6 @@ export function HighlightRulesSelector(
       const exponentFloat = '(?:(?:' + pointFloat + '|' + intPart + ')' + exponent + ')';
       const floatNumber = '(?:' + exponentFloat + '|' + pointFloat + ')';
 
-      // @ts-ignore
       this.$rules = {
         start: [
           {
@@ -180,7 +174,6 @@ export function HighlightRulesSelector(
 
   const name = variant;
 
-  // @ts-ignore
   ace.define(
     'ace/mode/source_highlight_rules' + name,
     [
@@ -195,14 +188,10 @@ export function HighlightRulesSelector(
   );
 }
 
-//source mode
 export function ModeSelector(id: number, variant: Variant, external: string = 'NONE') {
   const name = variant;
 
-  // @ts-ignore
-  function _Mode(acequire, exports, _module) {
-    'use strict';
-
+  function _Mode(acequire: any, exports: any, _module: any) {
     const oop = acequire('../lib/oop');
     const TextMode = acequire('./text').Mode;
     const SourceHighlightRules = acequire('./source_highlight_rules' + name).SourceHighlightRules;
@@ -212,44 +201,36 @@ export function ModeSelector(id: number, variant: Variant, external: string = 'N
     const CstyleBehaviour = acequire('./behaviour/cstyle').CstyleBehaviour;
     const CStyleFoldMode = acequire('./folding/cstyle').FoldMode;
 
-    const Mode = function () {
-      // @ts-ignore
+    const Mode = function (this: any) {
       this.HighlightRules = SourceHighlightRules;
-      // @ts-ignore
       this.$outdent = new MatchingBraceOutdent();
-      // @ts-ignore
       this.$behaviour = new CstyleBehaviour();
-      // @ts-ignore
       this.foldingRules = new CStyleFoldMode();
     };
     oop.inherits(Mode, TextMode);
-    (function () {
-      // @ts-ignore
+    (function (this: any) {
       this.lineCommentStart = '//';
-      // @ts-ignore
       this.blockComment = { start: '/*', end: '*/' };
-      // @ts-ignore
       this.$quotes = { '"': '"', "'": "'", '`': '`' };
 
-      // @ts-ignore
-      this.getNextLineIndent = function (state, line, tab) {
+      this.getNextLineIndent = function (state: any, line: any, tab: any) {
         let indent = this.$getIndent(line);
 
         const tokenizedLine = this.getTokenizer().getLineTokens(line, state);
         const tokens = tokenizedLine.tokens;
         const endState = tokenizedLine.state;
 
-        if (tokens.length && tokens[tokens.length - 1].type == 'comment') {
+        if (tokens.length && tokens[tokens.length - 1].type === 'comment') {
           return indent;
         }
 
-        if (state == 'start' || state == 'no_regex') {
-          const match = line.match(/^.*(?:\bcase\b.*:|[\{\(\[])\s*$/);
+        if (state === 'start' || state === 'no_regex') {
+          const match = line.match(/^.*(?:\bcase\b.*:|[{([])\s*$/);
           if (match) {
             indent += tab;
           }
-        } else if (state == 'doc-start') {
-          if (endState == 'start' || endState == 'no_regex') {
+        } else if (state === 'doc-start') {
+          if (endState === 'start' || endState === 'no_regex') {
             return '';
           }
           const match = line.match(/^\s*(\/?)\*/);
@@ -264,13 +245,11 @@ export function ModeSelector(id: number, variant: Variant, external: string = 'N
         return indent;
       };
 
-      // @ts-ignore
-      this.checkOutdent = function (state, line, input) {
+      this.checkOutdent = function (state: any, line: any, input: any) {
         return this.$outdent.checkOutdent(line, input);
       };
 
-      // @ts-ignore
-      this.autoOutdent = function (state, doc, row) {
+      this.autoOutdent = function (state: any, doc: any, row: any) {
         this.$outdent.autoOutdent(doc, row);
       };
 
@@ -301,13 +280,12 @@ export function ModeSelector(id: number, variant: Variant, external: string = 'N
       //   return worker
       // }
 
-      // @ts-ignore
       this.$id = 'ace/mode/source' + name;
     }.call(Mode.prototype));
 
     exports.Mode = Mode;
   }
-  // @ts-ignore
+
   ace.define(
     'ace/mode/source' + name,
     [
