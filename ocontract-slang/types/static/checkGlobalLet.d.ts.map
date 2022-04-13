@@ -1,0 +1,1 @@
+{"version":3,"file":"checkGlobalLet.d.ts","sourceRoot":"","sources":["../../../src/types/static/checkGlobalLet.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,kBAAkB,EAAE,MAAM,cAAc,CAAC;AAGlD,OAAO,EAAE,OAAO,EAAE,MAAM,oBAAoB,CAAC;AAQ7C,OAAO,EAA8B,IAAI,EAAE,MAAM,UAAU,CAAC;AAW5D,wBAAgB,uBAAuB,CACrC,IAAI,EAAE,kBAAkB,EACxB,OAAO,EAAE,OAAO,GACf,IAAI,CA+DN"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"checkConditional.d.ts","sourceRoot":"","sources":["../../../src/types/static/checkConditional.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,qBAAqB,EAAE,MAAM,cAAc,CAAC;AAGrD,OAAO,EAAE,OAAO,EAAE,MAAM,oBAAoB,CAAC;AAC7C,OAAO,EAAE,IAAI,EAAE,MAAM,UAAU,CAAC;AAMhC,wBAAgB,0BAA0B,CACxC,IAAI,EAAE,qBAAqB,EAC3B,OAAO,EAAE,OAAO,GACf,IAAI,CAmBN"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"checkIdentifierContract.d.ts","sourceRoot":"","sources":["../../../src/contracts/runtime/checkIdentifierContract.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,UAAU,EAAE,MAAM,cAAc,CAAC;AAE1C,OAAO,EAAE,OAAO,EAAE,aAAa,EAAE,MAAM,oBAAoB,CAAC;AAG5D,wBAAgB,uBAAuB,CACrC,IAAI,EAAE,UAAU,EAChB,OAAO,EAAE,OAAO,EAChB,MAAM,EAAE,aAAa,GACpB,IAAI,CAeN"}

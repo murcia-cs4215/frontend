@@ -1,0 +1,1 @@
+{"version":3,"file":"checkArg.d.ts","sourceRoot":"","sources":["../../../src/types/runtime/checkArg.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,qBAAqB,CAAC;AAE9C,OAAO,EAAE,IAAI,EAAE,MAAM,cAAc,CAAC;AAIpC,OAAO,EAAE,OAAO,EAAE,aAAa,EAAE,MAAM,oBAAoB,CAAC;AAI5D,eAAO,MAAM,iBAAiB,SACtB,IAAI,WACD,OAAO,OACX,aAAa,WACT,OAAO,KACf,IAaF,CAAC"}

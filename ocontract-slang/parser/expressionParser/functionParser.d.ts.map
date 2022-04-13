@@ -1,0 +1,1 @@
+{"version":3,"file":"functionParser.d.ts","sourceRoot":"","sources":["../../../src/parser/expressionParser/functionParser.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,sBAAsB,EAAE,aAAa,EAAE,MAAM,oBAAoB,CAAC;AAE3E,OAAO,EAAE,UAAU,EAAc,MAAM,cAAc,CAAC;AACtD,OAAO,EAAE,aAAa,EAAqB,MAAM,cAAc,CAAC;AAGhE,eAAO,MAAM,aAAa;;;kCAII,sBAAsB,GAAG,UAAU;yBAa5C,aAAa,GAAG,UAAU;;KA8B9C,CAAC"}

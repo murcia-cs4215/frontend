@@ -1,0 +1,1 @@
+{"version":3,"file":"wrappers.d.ts","sourceRoot":"","sources":["../../src/parser/wrappers.ts"],"names":[],"mappings":"AAAA,UAAU,OAAO,CAAC,CAAC;IACjB,MAAM,IAAI,CAAC,CAAC;CACb;AAED,qBAAa,aAAc,YAAW,OAAO,CAAC,MAAM,CAAC;IACnD,OAAO,CAAC,KAAK,CAAS;gBAEV,KAAK,EAAE,MAAM;IAIlB,MAAM,IAAI,MAAM;CAGxB"}

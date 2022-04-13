@@ -1,0 +1,1 @@
+{"version":3,"file":"checkCall.d.ts","sourceRoot":"","sources":["../../../src/types/static/checkCall.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,cAAc,CAAC;AAG9C,OAAO,EAAE,OAAO,EAAE,MAAM,oBAAoB,CAAC;AAC7C,OAAO,EAAgB,IAAI,EAAE,MAAM,UAAU,CAAC;AAU9C,wBAAgB,mBAAmB,CACjC,IAAI,EAAE,cAAc,EACpB,OAAO,EAAE,OAAO,GACf,IAAI,CAyBN"}
