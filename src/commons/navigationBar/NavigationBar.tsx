@@ -22,12 +22,12 @@ const NavigationBar: React.SFC<NavigationBarProps> = props => (
       <NavLink
         activeClassName={Classes.ACTIVE}
         className={classNames('NavigationBar__link', Classes.BUTTON, Classes.MINIMAL)}
-        to="/playground"
+        to="/"
       >
         <Icon icon={IconNames.CODE} />
         <div className="navbar-button-text hidden-xs">{'Source Academy Playground'}</div>
       </NavLink>
-      {props.role && (
+      {/* {props.role && (
         <NavLink
           activeClassName={Classes.ACTIVE}
           className={classNames('NavigationBar__link', Classes.BUTTON, Classes.MINIMAL)}
@@ -36,18 +36,18 @@ const NavigationBar: React.SFC<NavigationBarProps> = props => (
           <Icon icon={IconNames.MOUNTAIN} />
           <div className="navbar-button-text hidden-xs">Achievement</div>
         </NavLink>
-      )}
+      )} */}
     </NavbarGroup>
 
     <NavbarGroup align={Alignment.RIGHT}>
-      <NavLink
+      {/* <NavLink
         activeClassName={Classes.ACTIVE}
         className={classNames('NavigationBar__link', Classes.BUTTON, Classes.MINIMAL)}
         to="/contributors"
       >
         <Icon icon={IconNames.HEART} />
         <div className="navbar-button-text hidden-xs">Contributors</div>
-      </NavLink>
+      </NavLink> */}
 
       <div className="visible-xs">
         <NavbarDivider className="thin-divider" />
