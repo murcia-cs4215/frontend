@@ -9007,9 +9007,9 @@ obuf@^1.0.0, obuf@^1.1.2:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
-ocontract-slang@zhuhanming/cs4215-murcia#b6c0911fbbeb5672b868f3270d254b1ad125e6f9:
+ocontract-slang@murcia-cs4215/ocontract#b6c0911fbbeb5672b868f3270d254b1ad125e6f9:
   version "1.0.0"
-  resolved "https://codeload.github.com/zhuhanming/cs4215-murcia/tar.gz/b6c0911fbbeb5672b868f3270d254b1ad125e6f9"
+  resolved "https://codeload.github.com/murcia-cs4215/ocontract/tar.gz/b6c0911fbbeb5672b868f3270d254b1ad125e6f9"
   dependencies:
     antlr4ts "^0.5.0-alpha.4"
     lodash.clonedeep "^4.5.0"
