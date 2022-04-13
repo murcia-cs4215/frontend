@@ -5,6 +5,7 @@ import { Route, RouteComponentProps, Switch } from 'react-router';
 import Disabled from '../../pages/disabled/Disabled';
 import NotFound from '../../pages/notFound/NotFound';
 import Playground from '../../pages/playground/PlaygroundContainer';
+import SourcecastContainer from '../../pages/sourcecast/SourcecastContainer';
 import NavigationBar from '../navigationBar/NavigationBar';
 import Constants from '../utils/Constants';
 import { Role } from './ApplicationTypes';
@@ -63,6 +64,7 @@ class Application extends React.Component<ApplicationProps, ApplicationState> {
           {!disabled && (
             <Switch>
               <Route path="/" component={Playground} />
+              <Route path="/sourcecast/:sourcecastId?" component={SourcecastContainer} />
               <Route component={NotFound} />
             </Switch>
           )}
