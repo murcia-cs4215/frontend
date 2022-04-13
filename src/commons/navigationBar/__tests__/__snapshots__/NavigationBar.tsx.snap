@@ -3,23 +3,10 @@
 exports[`NavigationBar renders "Not logged in" correctly 1`] = `
 "<Blueprint3.Navbar className=\\"NavigationBar primary-navbar bp3-dark\\">
   <Blueprint3.NavbarGroup align=\\"left\\">
-    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/academy\\">
-      <Blueprint3.Icon icon=\\"symbol-diamond\\" />
-      <Blueprint3.NavbarHeading className=\\"hidden-xs\\">
-        Source Academy
-      </Blueprint3.NavbarHeading>
-    </NavLink>
-     
-    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/sourcecast\\">
-      <Blueprint3.Icon icon=\\"music\\" />
-      <div className=\\"navbar-button-text hidden-xs\\">
-        Sourcecast
-      </div>
-    </NavLink>
     <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/playground\\">
       <Blueprint3.Icon icon=\\"code\\" />
       <div className=\\"navbar-button-text hidden-xs\\">
-        Playground
+        Source Academy Playground
       </div>
     </NavLink>
   </Blueprint3.NavbarGroup>
@@ -36,7 +23,6 @@ exports[`NavigationBar renders "Not logged in" correctly 1`] = `
     <div className=\\"hidden-xs\\">
       <Blueprint3.NavbarDivider className=\\"default-divider\\" />
     </div>
-    <Dropdown handleLogOut={[Function: handleLogOut]} name={[undefined]} />
   </Blueprint3.NavbarGroup>
 </Blueprint3.Navbar>"
 `;
@@ -44,23 +30,10 @@ exports[`NavigationBar renders "Not logged in" correctly 1`] = `
 exports[`NavigationBar renders correctly with username 1`] = `
 "<Blueprint3.Navbar className=\\"NavigationBar primary-navbar bp3-dark\\">
   <Blueprint3.NavbarGroup align=\\"left\\">
-    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/academy\\">
-      <Blueprint3.Icon icon=\\"symbol-diamond\\" />
-      <Blueprint3.NavbarHeading className=\\"hidden-xs\\">
-        Source Academy
-      </Blueprint3.NavbarHeading>
-    </NavLink>
-     
-    <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/sourcecast\\">
-      <Blueprint3.Icon icon=\\"music\\" />
-      <div className=\\"navbar-button-text hidden-xs\\">
-        Sourcecast
-      </div>
-    </NavLink>
     <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/playground\\">
       <Blueprint3.Icon icon=\\"code\\" />
       <div className=\\"navbar-button-text hidden-xs\\">
-        Playground
+        Source Academy Playground
       </div>
     </NavLink>
   </Blueprint3.NavbarGroup>
@@ -77,7 +50,6 @@ exports[`NavigationBar renders correctly with username 1`] = `
     <div className=\\"hidden-xs\\">
       <Blueprint3.NavbarDivider className=\\"default-divider\\" />
     </div>
-    <Dropdown handleLogOut={[Function: handleLogOut]} name={[undefined]} />
   </Blueprint3.NavbarGroup>
 </Blueprint3.Navbar>"
 `;

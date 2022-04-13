@@ -7,7 +7,6 @@ exports[`Dropdown correctly mounts Profile component when a user is logged in 1`
   </Blueprint3.Popover>
   <DropdownAbout isOpen={false} onClose={[Function (anonymous)]} />
   <DropdownHelp isOpen={false} onClose={[Function (anonymous)]} />
-  <Connect(Profile) isOpen={false} onClose={[Function (anonymous)]} />
 </Fragment>"
 `;
 
