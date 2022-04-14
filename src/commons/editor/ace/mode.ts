@@ -48,6 +48,8 @@ export function HighlightRulesSelector(
 
       const storageType = 'int|float|string|char|bool|unit|contract';
 
+      const storageModifiers = 'rec';
+
       const keywordOperators = '+|+.|-|-.|/|/.|*|*.|mod|==|!=|<=|<|>|>=|=|<>|^';
 
       const builtinConstants = 'true|false';
@@ -56,6 +58,7 @@ export function HighlightRulesSelector(
         {
           'keyword.control': keywordControls,
           'storage.type': storageType,
+          'storage.modifiers': storageModifiers,
           'keyword.operator': keywordOperators,
           'variable.language': 'this',
           'constant.language': builtinConstants
