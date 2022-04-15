@@ -2,6 +2,10 @@ import { cleanUpContextAfterRun, prepareContextForRun } from 'ocontract/build/co
 import { monitorProgram } from 'ocontract/build/contracts/static/contractMonitor';
 import { SourceError } from 'ocontract/build/errors/types';
 import {
+  globalEnvironmentDefaultFunctions,
+  globalEnvironmentDefaultFunctionTypes
+} from 'ocontract/build/interpreter/default';
+import {
   globalEnvironmentDefaultConstants,
   globalEnvironmentDefaultConstantTypes
 } from 'ocontract/build/interpreter/default/constants';
@@ -15,9 +19,13 @@ import { typeCheck } from 'ocontract/build/types/static';
 function loadGlobalConstants(context: Context): void {
   context.runtime.environments[0].head = {
     ...context.runtime.environments[0].head,
-    ...globalEnvironmentDefaultConstants
+    ...globalEnvironmentDefaultConstants,
+    ...globalEnvironmentDefaultFunctions
   };
   globalEnvironmentDefaultConstantTypes.forEach(([key, type]) =>
+    context.typeEnvironments[0].typeMap.set(key, type)
+  );
+  globalEnvironmentDefaultFunctionTypes.forEach(([key, type]) =>
     context.typeEnvironments[0].typeMap.set(key, type)
   );
 }
