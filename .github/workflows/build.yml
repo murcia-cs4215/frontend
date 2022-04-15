@@ -35,6 +35,7 @@ jobs:
             1-${{ runner.os }}-build-
       - name: yarn install and build
         run: |
+          rm -rf node_modules
           yarn install
           yarn run build
           ln -s index.html build/playground.html
