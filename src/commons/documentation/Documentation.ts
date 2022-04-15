@@ -27,7 +27,41 @@ Object.entries(SourceDocumentation.builtins).forEach((chapterDoc: any) => {
   });
 });
 
+const keywords = {};
+const KEYWORD_SCORE = 20000;
+
+Object.entries(SourceDocumentation.keywords).forEach((chapterDoc: any) => {
+  const [chapter, docs] = chapterDoc;
+  keywords[chapter] = Object.entries(docs).map((entry: any) => {
+    const [name, info] = entry;
+    return {
+      caption: shortenCaption(name),
+      value: name,
+      meta: info.meta,
+      score: KEYWORD_SCORE
+    };
+  });
+});
+
+const types = {};
+const TYPE_SCORE = 21000;
+
+Object.entries(SourceDocumentation.types).forEach((chapterDoc: any) => {
+  const [chapter, docs] = chapterDoc;
+  types[chapter] = Object.entries(docs).map((entry: any) => {
+    const [name, info] = entry;
+    return {
+      caption: shortenCaption(name),
+      value: name,
+      meta: info.meta,
+      score: TYPE_SCORE
+    };
+  });
+});
+
 export const Documentation = {
   builtins: builtinDocumentation,
+  keywords,
+  types,
   externalLibraries: externalLibrariesDocumentation
 };
