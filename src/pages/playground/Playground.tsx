@@ -289,16 +289,11 @@ const Playground: React.FC<PlaygroundProps> = props => {
     () => ({
       label: 'Introduction',
       iconName: IconNames.COMPASS,
-      body: (
-        <Markdown
-          content={generateSourceIntroduction(props.sourceVariant)}
-          openLinksInNewWindow={true}
-        />
-      ),
+      body: <Markdown content={generateSourceIntroduction()} openLinksInNewWindow={true} />,
       id: SideContentType.introduction,
       toSpawn: () => true
     }),
-    [props.sourceVariant]
+    []
   );
 
   const tabs = React.useMemo(() => {
