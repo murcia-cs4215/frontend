@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "https://murcia-cs4215.github.io/frontend/static/css/main.8b8cc25f.css",
-    "main.js": "https://murcia-cs4215.github.io/frontend/static/js/main.baa3777c.js",
-    "main.js.map": "https://murcia-cs4215.github.io/frontend/static/js/main.baa3777c.js.map",
+    "main.js": "https://murcia-cs4215.github.io/frontend/static/js/main.a3cc58f0.js",
+    "main.js.map": "https://murcia-cs4215.github.io/frontend/static/js/main.a3cc58f0.js.map",
     "index.html": "https://murcia-cs4215.github.io/frontend/index.html",
-    "precache-manifest.bcb989cc9deb6dfe0bc0ee94a258107b.js": "https://murcia-cs4215.github.io/frontend/precache-manifest.bcb989cc9deb6dfe0bc0ee94a258107b.js",
+    "precache-manifest.343b263b2268c0aff028b6ae1f0ccea4.js": "https://murcia-cs4215.github.io/frontend/precache-manifest.343b263b2268c0aff028b6ae1f0ccea4.js",
     "service-worker.js": "https://murcia-cs4215.github.io/frontend/service-worker.js",
     "static/css/main.8b8cc25f.css.map": "https://murcia-cs4215.github.io/frontend/static/css/main.8b8cc25f.css.map",
-    "static/js/main.baa3777c.js.LICENSE.txt": "https://murcia-cs4215.github.io/frontend/static/js/main.baa3777c.js.LICENSE.txt",
+    "static/js/main.a3cc58f0.js.LICENSE.txt": "https://murcia-cs4215.github.io/frontend/static/js/main.a3cc58f0.js.LICENSE.txt",
     "static/media/index.scss": "https://murcia-cs4215.github.io/frontend/static/media/no_page_background.61832e2d.jpg"
   },
   "entrypoints": [
     "static/css/main.8b8cc25f.css",
-    "static/js/main.baa3777c.js"
+    "static/js/main.a3cc58f0.js"
   ]
 }
