@@ -6,6 +6,29 @@ export type Variant = 'ocontract';
 export const SourceDocumentation = {
   builtins: {
     default: {
+      infinity: {
+        description: formatDescription('infinity : float', 'Positive infinity.'),
+        meta: 'let'
+      },
+      neg_infinity: {
+        description: formatDescription('neg_infinity : float', 'Negative infinity.'),
+        meta: 'let'
+      },
+      nan: {
+        description: formatDescription(
+          'nan : float',
+          "A special floating-point value denoting the result of an undefined operation such as <code>0.0 /. 0.0</code>. Stands for 'not a number'. Any floating-point operation with <code>nan</code> as argument returns <code>nan</code> as result. As for floating-point comparisons, <code>=</code>, <code><</code>, <code><=</code>, <code>></code> and <code>>=</code> return <code>false</code> and <code><></code> returns <code>true</code> if one or both of their arguments is <code>nan</code>."
+        ),
+        meta: 'let'
+      },
+      pi: {
+        description: formatDescription('pi : float', 'The constant pi.'),
+        meta: 'let'
+      },
+      empty: {
+        description: formatDescription('pi : string', 'The empty string.'),
+        meta: 'let'
+      },
       is_nan: {
         description: formatDescription(
           'is_nan : float -> bool',
