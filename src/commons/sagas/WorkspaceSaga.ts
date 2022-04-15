@@ -6,6 +6,7 @@ import { run, Variant } from 'src/ocontract-integration';
 
 import { OverallState } from '../application/ApplicationTypes';
 import { DEBUG_RESET, DEBUG_RESUME, HIGHLIGHT_LINE } from '../application/types/InterpreterTypes';
+import { Documentation } from '../documentation/Documentation';
 import { actions } from '../utils/ActionsHelper';
 import { showWarningMessage } from '../utils/NotificationsHelper';
 import {
@@ -59,22 +60,41 @@ export default function* WorkspaceSaga(): SagaIterator {
     const workspaceLocation = action.payload.workspaceLocation;
 
     context = yield select((state: OverallState) => state.workspaces[workspaceLocation].context);
+    // const code: string = yield select((state: OverallState) => {
+    //   const prependCode = state.workspaces[workspaceLocation].editorPrepend;
+    //   const editorCode = state.workspaces[workspaceLocation].editorValue!;
+    //   return [prependCode, editorCode] as [string, string];
+    // });
+    // const [prepend, editorValue] = code;
 
-    const [editorNames, displaySuggestions] = [[], []];
+    // TODO: use autocompleteCode and prependLength to identify names in code
+    // Deal with prepended code
+    // let autocompleteCode;
+    // let prependLength = 0;
+    // if (!prepend) {
+    //   autocompleteCode = editorValue;
+    // } else {
+    //   prependLength = prepend.split('\n').length;
+    //   autocompleteCode = prepend + '\n' + editorValue;
+    // }
+
+    // TODO: Check if user is declaring a name
+    const displaySuggestions = true;
 
     if (!displaySuggestions) {
       yield call(action.payload.callback);
       return;
     }
 
-    const editorSuggestions = editorNames.map((name: any) => ({
-      caption: name.name,
-      value: name.name,
-      meta: name.meta,
-      score: name.score ? name.score + 1000 : 1000 // Prioritize suggestions from code
-    }));
+    const builtinSuggestions = Documentation.builtins['default'] || [];
+    const keywordSuggestions = Documentation.keywords['default'] || [];
+    const typeSuggestions = Documentation.types['default'] || [];
 
-    yield call(action.payload.callback, null, editorSuggestions);
+    yield call(action.payload.callback, null, [
+      ...builtinSuggestions,
+      ...keywordSuggestions,
+      ...typeSuggestions
+    ]);
   });
 
   yield takeEvery(TOGGLE_EDITOR_AUTORUN, function* (

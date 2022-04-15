@@ -3,7 +3,6 @@ import { monitorProgram } from 'ocontract/build/contracts/static/contractMonitor
 import { SourceError } from 'ocontract/build/errors/types';
 import { evaluate } from 'ocontract/build/interpreter/interpreter';
 import { parse } from 'ocontract/build/parser/parser';
-import { StringWrapper } from 'ocontract/build/parser/wrappers';
 import { Context, Result } from 'ocontract/build/runtimeTypes';
 import { typeCheck } from 'ocontract/build/types/static';
 
@@ -20,8 +19,7 @@ export function run(code: string, context: Context): Result {
 
     return {
       ...result,
-      status: 'finished',
-      value: result.value instanceof StringWrapper ? result.value.unwrap() : result.value
+      status: 'finished'
     };
   } catch (error) {
     cleanUpContextAfterRun(context);
