@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://murcia-cs4215.github.io/frontend/precache-manifest.343b263b2268c0aff028b6ae1f0ccea4.js"
+  "https://murcia-cs4215.github.io/frontend/precache-manifest.50722c658406c573b5f8e18dc2ae5aee.js"
 );
 
 self.addEventListener('message', (event) => {
